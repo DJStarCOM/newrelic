@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyTaxi\NewRelic\Stub;
+namespace DJStarCOM\NewRelic\Stub;
 
 class Foo
 {

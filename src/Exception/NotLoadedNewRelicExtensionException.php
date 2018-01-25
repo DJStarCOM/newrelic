@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyTaxi\NewRelic\Exception;
+namespace DJStarCOM\NewRelic\Exception;
 
 class NotLoadedNewRelicExtensionException extends \RuntimeException
 {

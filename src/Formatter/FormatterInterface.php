@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyTaxi\NewRelic\Formatter;
+namespace DJStarCOM\NewRelic\Formatter;
 
 interface FormatterInterface
 {

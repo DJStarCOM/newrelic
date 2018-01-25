@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyTaxi\NewRelic\Config;
+namespace DJStarCOM\NewRelic\Config;
 
 class TransactionConfig
 {

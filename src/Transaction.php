@@ -1,12 +1,12 @@
 <?php
 
-namespace EasyTaxi\NewRelic;
+namespace DJStarCOM\NewRelic;
 
-use EasyTaxi\NewRelic\Config\TransactionConfig;
-use EasyTaxi\NewRelic\Exception\InvalidCallerInstanceException;
-use EasyTaxi\NewRelic\Exception\NotLoadedNewRelicExtensionException;
-use EasyTaxi\NewRelic\Formatter\ArgumentsFormatter;
-use EasyTaxi\NewRelic\Formatter\FormatterInterface;
+use DJStarCOM\NewRelic\Config\TransactionConfig;
+use DJStarCOM\NewRelic\Exception\InvalidCallerInstanceException;
+use DJStarCOM\NewRelic\Exception\NotLoadedNewRelicExtensionException;
+use DJStarCOM\NewRelic\Formatter\ArgumentsFormatter;
+use DJStarCOM\NewRelic\Formatter\FormatterInterface;
 
 class Transaction
 {

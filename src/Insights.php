@@ -1,9 +1,9 @@
 <?php
 
-namespace EasyTaxi\NewRelic;
+namespace DJStarCOM\NewRelic;
 
 use GuzzleHttp\Client;
-use EasyTaxi\NewRelic\Entity\Insights\EventCollection;
+use DJStarCOM\NewRelic\Entity\Insights\EventCollection;
 use Respect\Validation\Validator;
 
 class Insights

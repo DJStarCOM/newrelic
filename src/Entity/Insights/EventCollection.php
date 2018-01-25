@@ -1,6 +1,6 @@
 <?php
 
-namespace EasyTaxi\NewRelic\Entity\Insights;
+namespace DJStarCOM\NewRelic\Entity\Insights;
 
 class EventCollection extends \ArrayObject implements \JsonSerializable
 {

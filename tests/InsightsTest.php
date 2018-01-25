@@ -9,9 +9,9 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Promise;
 use GuzzleHttp\Middleware;
-use EasyTaxi\NewRelic\Insights;
-use EasyTaxi\NewRelic\Entity\Insights\EventCollection;
-use EasyTaxi\NewRelic\Entity\Insights\Event;
+use DJStarCOM\NewRelic\Insights;
+use DJStarCOM\NewRelic\Entity\Insights\EventCollection;
+use DJStarCOM\NewRelic\Entity\Insights\Event;
 use PHPUnit\Framework\TestCase;
 
 class InsightsTest extends TestCase
@@ -30,7 +30,7 @@ class InsightsTest extends TestCase
 
         $client = new Client([
             'handler' => $this->handler,
-            'base_uri' => 'http://WhoCares/'
+            'base_uri' => 'http://SomeEndpoint/'
         ]);
         $this->newRelicInsights = new Insights($client, 'Mum-Ha');
     }
@@ -89,7 +89,7 @@ class InsightsTest extends TestCase
     {
         $client = new Client([
             'handler' => $this->handler,
-            'base_uri' => 'http://WhoCares/base/path/'
+            'base_uri' => 'http://SomeEndpoint/base/path/'
         ]);
         $this->newRelicInsights = new Insights($client, 'Mum-Ha');
 

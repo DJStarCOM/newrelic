@@ -1,8 +1,12 @@
 {
-    "name": "easytaxibr/newrelic",
+    "name": "DJStarCOM/newrelic",
     "description": "NewRelic Tools for PHP",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Stanislav Tsepeniuk",
+            "email": "starcomdj@gmail.com"
+        },
         {
             "name": "Marcelo Milhomem",
             "email": "marcelo.milhomem@easytaxi.com.br",
@@ -12,7 +16,7 @@
     ],
     "autoload": {
         "psr-4" : {
-            "EasyTaxi\\NewRelic\\" : "src"
+            "DJStarCOM\\NewRelic\\" : "src"
         }
     },
     "require": {
@@ -26,7 +30,7 @@
     },
     "autoload-dev": {
         "psr-4" : {
-            "EasyTaxi\\NewRelic\\" : "tests"
+            "DJStarCOM\\NewRelic\\" : "tests"
         }
     }
 }

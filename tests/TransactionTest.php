@@ -1,9 +1,9 @@
 <?php
 
-namespace EasyTaxi\NewRelic;
+namespace DJStarCOM\NewRelic;
 
-use EasyTaxi\NewRelic\Config\TransactionConfig;
-use EasyTaxi\NewRelic\Stub\Foo;
+use DJStarCOM\NewRelic\Config\TransactionConfig;
+use DJStarCOM\NewRelic\Stub\Foo;
 use PHPUnit\Framework\TestCase;
 
 class TransactionTest extends TestCase
@@ -135,7 +135,7 @@ class TransactionTest extends TestCase
     }
 
     /**
-     * @expectedException \EasyTaxi\NewRelic\Exception\NotLoadedNewRelicExtensionException
+     * @expectedException \DJStarCOM\NewRelic\Exception\NotLoadedNewRelicExtensionException
      */
     public function testExceptionIfExtensionIsNotLoaded()
     {
