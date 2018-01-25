@@ -1,8 +1,8 @@
 New Relic Libraries
 ==========================
 
-[![Build Status](https://travis-ci.org/easytaxibr/newrelic.svg?branch=master)](https://travis-ci.org/easytaxibr/newrelic)
-[![Code Coverage](https://scrutinizer-ci.com/g/easytaxibr/newrelic/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/easytaxibr/newrelic/?branch=master)
+[![Build Status](https://travis-ci.org/DJStarCOM/newrelic.svg?branch=master)](https://travis-ci.org/DJStarCOM/newrelic)
+[![Code Coverage](https://scrutinizer-ci.com/g/DJStarCOM/newrelic/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/DJStarCOM/newrelic/?branch=master)
 
 New Relic Transaction Library
 ==========================
@@ -41,7 +41,7 @@ class Email
 
 namespace Foo\Bar;
 
-use EasyTaxi\NewRelic;
+use DJStarCOM\NewRelic;
 use Consumers;
 
 $consumer = new Consumers\Email();
@@ -83,7 +83,7 @@ Use this library to easily post custom events to New Relic Insights.
 ```php
 <?php
 
-use EasyTaxi\NewRelic;
+use DJStarCOM\NewRelic;
 use GuzzleHttp\Client;
 
 $client = new Client([
@@ -129,5 +129,5 @@ curl -sS https://getcomposer.org/installer | php
 Next, run the Composer command to install the latest stable version:
 
 ```bash
-composer.phar require easytaxibr/newrelic
+composer.phar require DJStarCOM/newrelic
 ```
