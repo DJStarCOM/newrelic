@@ -5,7 +5,8 @@
     "authors": [
         {
             "name": "Stanislav Tsepeniuk",
-            "email": "starcomdj@gmail.com"
+            "email": "starcomdj@gmail.com",
+            "role": "Developer"
         },
         {
             "name": "Marcelo Milhomem",
