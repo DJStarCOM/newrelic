@@ -13,7 +13,6 @@ class Transaction
     private $instance;
     private $config;
     private $formatter;
-    private $isBackground;
 
     /**
      * Transaction constructor.
@@ -43,12 +42,6 @@ class Transaction
         $this->formatter = $formatter;
     }
 
-    /**
-     * @param string $name
-     * @param $arguments
-     * @return mixed
-     * @throws \Exception
-     */
     public function __call($name, $arguments)
     {
         $this->transactionStart($name, $arguments);
