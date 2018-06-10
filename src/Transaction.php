@@ -42,6 +42,10 @@ class Transaction
         $this->formatter = $formatter;
     }
 
+    /**
+     * @inheritdoc
+     * @throws \Exception
+     */
     public function __call($name, $arguments)
     {
         $this->transactionStart($name, $arguments);
