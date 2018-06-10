@@ -49,7 +49,7 @@ class InsightsTest extends TestCase
     public function testFulfillMessageInterface()
     {
         $event = new Event();
-        $event->eventType = "Purchase";
+        $event->eventType = 'Purchase';
         $event->account = 3;
         $event->amount = 259.54;
         $events = new EventCollection();
@@ -77,6 +77,7 @@ class InsightsTest extends TestCase
     /**
      * @dataProvider provideInvalidEventTypes
      * @expectedException \Exception
+     * @param string $type
      */
     public function testEventType($type)
     {

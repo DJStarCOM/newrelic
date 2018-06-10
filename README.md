@@ -95,13 +95,13 @@ $this->newRelicInsights = new NewRelic\Insights($client, 'YOUR_KEY_HERE');
 $events = new NewRelic\Entity\Insights\EventCollection();
 
 $event = new NewRelic\Entity\Insights\Event();
-$event->eventType = "Purchase";
+$event->eventType = 'Purchase';
 $event->account = 3;
 $event->amount = 259.54;
 $events->add($event);
 
 $event2 = new NewRelic\Entity\Insights\Event();
-$event2->eventType = "Purchase";
+$event2->eventType = 'Purchase';
 $event2->account = 4;
 $events->add($event2);
 

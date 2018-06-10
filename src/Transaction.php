@@ -21,7 +21,7 @@ class Transaction
      */
     public function __construct($instance, TransactionConfig $config)
     {
-        if (!is_object($instance)) {
+        if (!\is_object($instance)) {
             throw new InvalidCallerInstanceException();
         }
 
@@ -51,7 +51,7 @@ class Transaction
         $this->transactionStart($name, $arguments);
 
         try {
-            return call_user_func_array([$this->instance, $name], $arguments);
+            return \call_user_func_array([$this->instance, $name], $arguments);
         } catch (\Exception $genericException) {
             $this->transactionFail($name, $genericException);
             throw $genericException;
