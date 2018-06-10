@@ -18,14 +18,15 @@ class TransactionTest extends TestCase
     public static $applicationName;
     public static $extensionAvailable;
     public static $transactionsCount;
+    public static $isBackground;
 
     private $config;
 
     public function setUp()
     {
         $this->config = new TransactionConfig();
-        $this->config->applicationName = 'Panthro';
-        $this->config->transactionName = 'Jaga';
+        $this->config->applicationName = 'RTG';
+        $this->config->transactionName = 'Track';
         self::$extensionAvailable = true;
         $this->transaction = new Transaction(new Foo(), $this->config);
         self::$endTransaction = false;
@@ -36,21 +37,28 @@ class TransactionTest extends TestCase
     {
         $this->transaction->bar();
 
-        $this->assertEquals('Panthro', self::$applicationName);
+        $this->assertEquals('RTG', self::$applicationName);
+    }
+
+    public function testCanSetBackgroundJob()
+    {
+        $this->transaction->bar();
+
+        $this->assertEquals(true, self::$isBackground);
     }
 
     public function testStartATransaction()
     {
         $this->transaction->bar();
 
-        $this->assertEquals('Panthro', self::$applicationNameStarted);
+        $this->assertEquals('RTG', self::$applicationNameStarted);
     }
 
     public function testCanSetTransactionName()
     {
         $this->transaction->bar();
 
-        $this->assertEquals('Jaga', self::$transactionName);
+        $this->assertEquals('Track', self::$transactionName);
     }
 
     public function testCanAddComplexArgumentsToNewRelic()
@@ -74,7 +82,7 @@ class TransactionTest extends TestCase
 
     public function testArgumentAreCorrectedPassedToObject()
     {
-        $argument = 'Cheetara';
+        $argument = 'NRI';
 
         $returnedArgument = $this->transaction->bar($argument);
 
@@ -83,18 +91,18 @@ class TransactionTest extends TestCase
 
     /**
      * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Cheetara
+     * @expectedExceptionMessage NRI
      */
     public function testExceptionStillTheSame()
     {
-        $expectedException = new \InvalidArgumentException('Cheetara');
+        $expectedException = new \InvalidArgumentException('NRI');
 
         $this->transaction->fooThrowThisException($expectedException);
     }
 
     public function testExceptionIsRecordedOnNewRelic()
     {
-        $expectedException = new \InvalidArgumentException('Cheetara');
+        $expectedException = new \InvalidArgumentException('NRI');
 
         try {
             $this->transaction->fooThrowThisException($expectedException);
@@ -108,7 +116,7 @@ class TransactionTest extends TestCase
 
     public function testEndTransactionAndSendToNewRelicWhenAnExceptionHappen()
     {
-        $expectedException = new \InvalidArgumentException('Cheetara');
+        $expectedException = new \InvalidArgumentException('NRI');
 
         try {
             $this->transaction->fooThrowThisException($expectedException);
@@ -131,7 +139,7 @@ class TransactionTest extends TestCase
      */
     public function testNonObject()
     {
-        new Transaction('Cheetara', new TransactionConfig());
+        new Transaction('NRI', new TransactionConfig());
     }
 
     /**
@@ -191,4 +199,9 @@ function extension_loaded($extension)
 function newrelic_set_appname($appName)
 {
     TransactionTest::$applicationName = $appName;
+}
+
+function newrelic_background_job($isBackground)
+{
+    TransactionTest::$isBackground = $isBackground;
 }

@@ -11,6 +11,11 @@ class Insights
     private $key;
     private $client;
 
+    /**
+     * Insights constructor.
+     * @param Client $client
+     * @param string $key
+     */
     public function __construct(Client $client, $key)
     {
         $this->client = $client;
@@ -23,6 +28,10 @@ class Insights
             ->assert($baseUrl);
     }
 
+    /**
+     * @param EventCollection $events
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
     public function sendEvent(EventCollection $events)
     {
         $promise = $this->client->postAsync('events', [

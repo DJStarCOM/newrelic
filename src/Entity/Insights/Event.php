@@ -8,6 +8,9 @@ class Event implements \JsonSerializable
 {
     public $eventType;
 
+    /**
+     * @inheritdoc
+     */
     public function jsonSerialize()
     {
         Validator::stringType()

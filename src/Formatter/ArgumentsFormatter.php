@@ -4,6 +4,10 @@ namespace DJStarCOM\NewRelic\Formatter;
 
 class ArgumentsFormatter implements FormatterInterface
 {
+    /**
+     * @param array $arguments
+     * @return \ArrayObject
+     */
     public function format(array $arguments)
     {
         $output = new \ArrayObject();
@@ -18,7 +22,7 @@ class ArgumentsFormatter implements FormatterInterface
         return $output;
     }
 
-    private function expandArgument($argument, $flatten)
+    private function expandArgument($argument, &$flatten)
     {
         foreach ($argument as $key => $value) {
             if (null === $value || is_scalar($value)) {

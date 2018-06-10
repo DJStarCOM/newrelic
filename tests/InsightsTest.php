@@ -16,8 +16,11 @@ use PHPUnit\Framework\TestCase;
 
 class InsightsTest extends TestCase
 {
+    /**
+     * @var Insights
+     */
     private $newRelicInsights;
-    private $requestContainer;
+    private $requestContainer = [];
     private $handler;
 
     public function setUp()
@@ -73,7 +76,7 @@ class InsightsTest extends TestCase
 
     /**
      * @dataProvider provideInvalidEventTypes
-     * @expectedException Exception
+     * @expectedException \Exception
      */
     public function testEventType($type)
     {

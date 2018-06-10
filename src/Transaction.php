@@ -13,7 +13,13 @@ class Transaction
     private $instance;
     private $config;
     private $formatter;
+    private $isBackground;
 
+    /**
+     * Transaction constructor.
+     * @param $instance
+     * @param TransactionConfig $config
+     */
     public function __construct($instance, TransactionConfig $config)
     {
         if (!is_object($instance)) {
@@ -29,11 +35,20 @@ class Transaction
         }
     }
 
+    /**
+     * @param FormatterInterface $formatter
+     */
     public function setFormatter(FormatterInterface $formatter)
     {
         $this->formatter = $formatter;
     }
 
+    /**
+     * @param string $name
+     * @param $arguments
+     * @return mixed
+     * @throws \Exception
+     */
     public function __call($name, $arguments)
     {
         $this->transactionStart($name, $arguments);
@@ -48,6 +63,9 @@ class Transaction
         }
     }
 
+    /**
+     * @param $customParameters
+     */
     private function addNewRelicParameter($customParameters)
     {
         foreach ($customParameters as $key => $value) {
@@ -59,10 +77,18 @@ class Transaction
         }
     }
 
+    /**
+     * @param string $name
+     * @param mixed $arguments
+     */
     private function transactionStart($name, $arguments)
     {
         if (!$this->shouldBeMonitored($name)) {
             return;
+        }
+
+        if (PHP_SAPI === 'cli') {
+            newrelic_background_job(true);
         }
 
         newrelic_set_appname($this->config->applicationName);
@@ -72,11 +98,18 @@ class Transaction
         $this->addNewRelicParameter($customParameters);
     }
 
+    /**
+     * @param $name
+     * @return bool
+     */
     private function shouldBeMonitored($name)
     {
         return !$this->config->monitoredMethodName || $name == $this->config->monitoredMethodName;
     }
 
+    /**
+     * @param $name
+     */
     private function transactionEnd($name)
     {
         if (!$this->shouldBeMonitored($name)) {
@@ -86,6 +119,10 @@ class Transaction
         newrelic_end_transaction();
     }
 
+    /**
+     * @param $name
+     * @param \Exception $genericException
+     */
     private function transactionFail($name, \Exception $genericException)
     {
         if (!$this->shouldBeMonitored($name)) {
